@@ -7,11 +7,11 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,sans-serif;background:#f9f8f5;color:#1a1a18;padding:1rem}
-.wrap{max-width:780px;margin:0 auto;padding:1rem 0 2rem}
+.wrap{max-width:800px;margin:0 auto;padding:1rem 0 2rem}
 h1{font-size:20px;font-weight:500;margin-bottom:4px}
 .subtitle{font-size:14px;color:#666;margin-bottom:1.5rem}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem}
-.tab{padding:6px 14px;font-size:13px;font-weight:500;border:0.5px solid #bbb;border-radius:8px;cursor:pointer;background:#fff;color:#666;transition:all 0.15s}
+.tab{padding:6px 13px;font-size:13px;font-weight:500;border:0.5px solid #bbb;border-radius:8px;cursor:pointer;background:#fff;color:#666;transition:all 0.15s}
 .tab.active{background:#eee;color:#111;border-color:#888}
 .section{display:none}.section.active{display:block}
 .day-card{background:#fff;border:0.5px solid #ddd;border-radius:12px;padding:1rem 1.25rem;margin-bottom:10px}
@@ -28,14 +28,15 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
 .badge-run{background:#EAF3DE;color:#3B6D11}
 .badge-car{background:#FAEEDA;color:#633806}
 .badge-free{background:#E1F5EE;color:#085041}
+.badge-fix{background:#FCEBEB;color:#A32D2D}
 .info-card{background:#f2f1ee;border-radius:12px;padding:1rem 1.25rem;margin-bottom:10px}
-.info-title{font-size:13px;font-weight:500;margin-bottom:6px}
-.info-row{display:flex;gap:8px;margin-bottom:5px;font-size:13px;align-items:flex-start}
-.info-label{color:#888;min-width:90px;flex-shrink:0}
-.info-val{color:#111}
+.info-title{font-size:13px;font-weight:500;margin-bottom:8px;color:#111}
+.info-row{display:flex;gap:8px;margin-bottom:6px;font-size:13px;align-items:flex-start}
+.info-label{color:#888;min-width:110px;flex-shrink:0;line-height:1.5}
+.info-val{color:#111;line-height:1.5}
 .event-card{border-left:3px solid #185FA5;background:#fff;border-radius:0 8px 8px 0;border-top:0.5px solid #ddd;border-right:0.5px solid #ddd;border-bottom:0.5px solid #ddd;padding:10px 14px;margin-bottom:8px}
-.event-card.green{border-left-color:#1D9E75}
 .event-card.amber{border-left-color:#BA7517}
+.event-card.green{border-left-color:#1D9E75}
 .event-name{font-size:14px;font-weight:500}
 .event-meta{font-size:12px;color:#888;margin-top:3px}
 .event-desc{font-size:13px;color:#555;margin-top:5px;line-height:1.5}
@@ -56,13 +57,32 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
 .budget-cat{color:#666}
 .budget-val{color:#111;font-weight:500}
 .alert{background:#E6F1FB;border-radius:8px;padding:10px 14px;font-size:13px;color:#185FA5;margin-bottom:10px;line-height:1.5}
-@media(max-width:500px){.base-card,.grid2{grid-template-columns:1fr}.tabs{gap:4px}.tab{padding:5px 10px;font-size:12px}}
+.pinfo-section{margin-bottom:1.5rem}
+.pinfo-head{font-size:15px;font-weight:500;color:#111;margin-bottom:10px;padding-bottom:6px;border-bottom:1.5px solid #ddd}
+.pinfo-block{background:#fff;border:0.5px solid #ddd;border-radius:12px;padding:1rem 1.25rem;margin-bottom:8px}
+.pinfo-block-title{font-size:13px;font-weight:500;color:#111;margin-bottom:8px}
+.pinfo-row{display:flex;gap:10px;margin-bottom:7px;font-size:13px;align-items:flex-start;line-height:1.5}
+.pinfo-icon{flex-shrink:0;width:22px;text-align:center;font-size:15px;margin-top:1px}
+.pinfo-text{color:#444;flex:1}
+.pinfo-text strong{color:#111;font-weight:500}
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.do-box{background:#E1F5EE;border-radius:8px;padding:10px 12px}
+.dont-box{background:#FCEBEB;border-radius:8px;padding:10px 12px}
+.do-box-title{font-size:12px;font-weight:500;color:#085041;margin-bottom:5px}
+.dont-box-title{font-size:12px;font-weight:500;color:#A32D2D;margin-bottom:5px}
+.do-box li,.dont-box li{font-size:12px;color:#333;padding:2px 0;line-height:1.4;list-style:none}
+.do-box li::before{content:'✓  ';color:#1D9E75;font-weight:500}
+.dont-box li::before{content:'✗  ';color:#A32D2D;font-weight:500}
+.phrase-row{display:flex;gap:12px;padding:5px 0;border-bottom:0.5px solid #eee;font-size:13px}
+.phrase-fr{color:#111;font-weight:500;min-width:220px;flex-shrink:0}
+.phrase-pl{color:#666}
+@media(max-width:520px){.base-card,.grid2,.do-dont{grid-template-columns:1fr}.tabs{gap:4px}.tab{padding:5px 9px;font-size:11px}.phrase-row{flex-direction:column;gap:2px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <h1>Riwiera Francuska — plan podróży</h1>
-<p class="subtitle">27.04 – 05.05.2026 · 2 bazy noclegowe · transport publiczny + 1 dzień autem</p>
+<p class="subtitle">27.04 – 05.05.2026 · 2 osoby · 2 bazy noclegowe · transport publiczny + auto D7+D8</p>
 <div class="tabs">
   <div class="tab active" onclick="show('plan',this)">Plan dnia</div>
   <div class="tab" onclick="show('bases',this)">Bazy</div>
@@ -71,8 +91,10 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
   <div class="tab" onclick="show('food',this)">Jedzenie</div>
   <div class="tab" onclick="show('run',this)">Biegi</div>
   <div class="tab" onclick="show('budget',this)">Budżet</div>
+  <div class="tab" onclick="show('tips',this)">Przydatne info</div>
 </div>
 
+<!-- PLAN -->
 <div id="plan" class="section active">
 
 <div class="day-card">
@@ -81,29 +103,29 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
   <div><div class="day-title">Nicea — przybycie i orientacja</div><div class="day-date">Poniedziałek, 27 kwietnia</div></div>
 </div>
 <ul class="timeline">
-  <li><strong>8:15</strong> — lądowanie. Tramwaj T2 → centrum Nice (~30 min, 1,70€)</li>
-  <li><strong>10:00</strong> — Cours Saleya: poranny targ (zamknięty ~13:00), kolory, kwiaty, socca na ulicy<span class="badge badge-free">gratis</span></li>
-  <li><strong>11:30</strong> — Vieux Nice: katedra Sainte-Réparate (bezpłatna), wąskie uliczki, Place du Palais de Justice</li>
-  <li><strong>13:00</strong> — lunch: socca i pissaladière — Chez René (Place Rosetti) lub Chez Pipo</li>
-  <li><strong>14:30</strong> — Port Lympia, bulwar nadmorski</li>
-  <li><strong>16:00</strong> — Colline du Château — panorama na zatokę Anges i Vieux Nice<span class="badge badge-free">gratis</span></li>
-  <li><strong>18:00</strong> — Promenade des Anglais — spacer o zachodzie słońca</li>
-  <li><strong>20:00</strong> — kolacja w Vieux Nice: pan bagnat, pistou, ratatouille</li>
+  <li><strong>8:15</strong> — lądowanie. Tramwaj T2 → centrum Nice (~30 min, 1,70€). Bilet w automacie na przystanku, skasować przy wejściu.</li>
+  <li><strong>10:00</strong> — Cours Saleya: poranny targ (zamknięty ~13:00), kwiaty, warzywa, socca na ulicy<span class="badge badge-free">gratis</span></li>
+  <li><strong>11:30</strong> — Vieux Nice: katedra Sainte-Réparate (bezpłatna, barok nicejski), wąskie uliczki, Place du Palais de Justice</li>
+  <li><strong>13:00</strong> — lunch: socca i pissaladière — Chez René (Place Rosetti) lub Chez Pipo. Bez rezerwacji, kolejka przy okienku.</li>
+  <li><strong>14:30</strong> — Port Lympia: kolorowe fasady, nabrzeże rybackie</li>
+  <li><strong>16:00</strong> — Colline du Château: wejście schodami (gratis) lub windą (1,50€). Panorama 360° na Zatokę Aniołów.<span class="badge badge-free">gratis pieszo</span></li>
+  <li><strong>18:00</strong> — Promenade des Anglais — spacer przy zachodzie słońca</li>
+  <li><strong>20:00</strong> — kolacja Vieux Nice: socca, pan bagnat, pistou, ratatouille</li>
 </ul>
 </div>
 
 <div class="day-card">
 <div class="day-header">
   <div class="day-num" style="background:#E6F1FB;color:#0C447C">D2</div>
-  <div><div class="day-title">Cannes — CANNESERIES (ostatni dzień!)</div><div class="day-date">Wtorek, 28 kwietnia</div></div>
+  <div><div class="day-title">Cannes — CANNESERIES (ostatni dzień festiwalu!)</div><div class="day-date">Wtorek, 28 kwietnia</div></div>
 </div>
 <ul class="timeline">
-  <li><strong>9:30</strong> — pociąg TER Nice → Cannes (~35 min, ~8€)</li>
+  <li><strong>9:30</strong> — pociąg TER Nice-Ville → Cannes (~35 min, ~8€). Uwaga: skasować bilet papierowy w żółtym kompostowniku przed wejściem na peron!</li>
   <li><strong>10:00</strong> — <strong>CANNESERIES</strong> — Palais des Festivals: premiery seriali, różowy dywan, gwiazdy<span class="badge badge-event">BEZPŁATNE</span></li>
-  <li><strong>12:30</strong> — lunch w Le Suquet lub przy Marché Forville</li>
+  <li><strong>12:30</strong> — lunch: Marché Forville (kryty targ z gotowymi daniami) lub Le Suquet</li>
   <li><strong>14:00</strong> — Le Suquet: stare miasto, wieża zegarowa, panorama na Croisette<span class="badge badge-free">gratis</span></li>
   <li><strong>15:30</strong> — La Croisette: odciski dłoni gwiazd przy Palais, luksusowe jachty w porcie</li>
-  <li><strong>17:00</strong> — Rue d'Antibes — architektura belle époque, kawiarnie</li>
+  <li><strong>17:00</strong> — Rue d'Antibes: architektura belle époque, kawiarnie</li>
   <li><strong>18:00</strong> — pociąg TER Cannes → Nice (~35 min)</li>
   <li><strong>20:00</strong> — kolacja Nice</li>
 </ul>
@@ -115,29 +137,31 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
   <div><div class="day-title">Monako + Eze — tory F1 i orli gród</div><div class="day-date">Środa, 29 kwietnia</div></div>
 </div>
 <ul class="timeline">
-  <li><strong>10:00</strong> — pociąg TER Nice → Monaco (~22 min, ~4€). Art Monte-Carlo opening day!<span class="badge badge-event">WYDARZENIE</span></li>
-  <li><strong>10:30</strong> — Le Rocher: Palais Princier (zmiana warty 11:55)<span class="badge badge-free">gratis</span>, katedra — grób Grace Kelly<span class="badge badge-free">gratis</span></li>
-  <li><strong>12:30</strong> — lunch w La Condamine (tańsza dzielnica portowa)</li>
-  <li><strong>14:00</strong> — spacer torem F1: Sainte-Dévote, Casino Square, Fairmont Hairpin, Port<span class="badge badge-free">gratis</span></li>
-  <li><strong>14:30</strong> — Musée Océanographique (~20€) LUB Jardin Exotique (7,50€)</li>
-  <li><strong>16:30</strong> — autobus 112 Monaco → Eze Village (~20 min, ~2€)</li>
-  <li><strong>17:00</strong> — Eze: średniowieczne uliczki, Jardin Exotique Eze (6€), galerie sztuki</li>
-  <li><strong>19:00</strong> — zejście Sentier Nietzschego do Eze-sur-Mer (~1,5h, nocny widok na zatokę)</li>
-  <li><strong>20:30</strong> — pociąg TER Eze-sur-Mer → Nice (~18 min)</li>
+  <li><strong>10:00</strong> — pociąg TER Nice → Monaco (~22 min, ~4€). Art Monte-Carlo — opening day!<span class="badge badge-event">WYDARZENIE</span></li>
+  <li><strong>10:30</strong> — Le Rocher: Palais Princier (zmiana warty 11:55 — warto zostać)<span class="badge badge-free">gratis</span>, katedra — grób Grace Kelly<span class="badge badge-free">gratis</span></li>
+  <li><strong>12:00</strong> — lunch La Condamine (tańsza dzielnica portowa — unikaj restauracji przy porcie)</li>
+  <li><strong>13:00</strong> — spacer torem F1: Sainte-Dévote, Casino Square, Fairmont Hairpin, tunel, port<span class="badge badge-free">gratis</span></li>
+  <li><strong>14:00</strong> — Musée Océanographique (~20€) LUB Jardin Exotique (7,50€) — jedno wystarczy</li>
+  <li><strong>15:30</strong> — autobus z Monaco → Eze Village (~20 min, ~2€)</li>
+  <li><strong>16:00</strong> — Eze Village: średniowieczne uliczki, Jardin Exotique Eze (6€, taras widokowy)</li>
+  <li><strong>17:00</strong> — <strong>Sentier Nietzschego</strong>: zejście do Eze-sur-Mer (~1,5h leśną ścieżką nad morzem). <span class="badge badge-fix">Start MAX 17:00 — zmrok o 21:00</span></li>
+  <li><strong>18:30</strong> — Eze-sur-Mer: plaża lub kolacja przy morzu</li>
+  <li><strong>19:00</strong> — pociąg TER Eze-sur-Mer → Nice (~18 min)</li>
+  <li><strong>20:00</strong> — kolacja Nice (jeśli nie zjedzono wcześniej)</li>
 </ul>
 </div>
 
 <div class="day-card">
 <div class="day-header">
   <div class="day-num" style="background:#E6F1FB;color:#0C447C">D4</div>
-  <div><div class="day-title">Villefranche + Cap Ferrat</div><div class="day-date">Czwartek, 30 kwietnia</div></div>
+  <div><div class="day-title">Villefranche-sur-Mer + Cap Ferrat</div><div class="day-date">Czwartek, 30 kwietnia</div></div>
 </div>
 <ul class="timeline">
-  <li><strong>10:00</strong> — pociąg/autobus Nice → Villefranche (~12 min, ~4€)</li>
-  <li><strong>10:15</strong> — Villefranche: zatoka, Chapelle Saint-Pierre (freski Cocteau, 3€), cytadela<span class="badge badge-free">zewnętrze gratis</span></li>
-  <li><strong>12:00</strong> — autobus 81 → Saint-Jean-Cap-Ferrat (~20 min)</li>
-  <li><strong>12:30</strong> — lunch przy porcie Saint-Jean</li>
-  <li><strong>14:00</strong> — Sentier du littoral wokół Cap Ferrat: pełna pętla ~8 km<span class="badge badge-free">gratis</span></li>
+  <li><strong>10:00</strong> — pociąg TER Nice → Villefranche-sur-Mer (~12 min, ~4€)</li>
+  <li><strong>10:15</strong> — Villefranche: turkusowa zatoka, Chapelle Saint-Pierre (freski Cocteau, 3€), cytadela<span class="badge badge-free">zewnętrze gratis</span></li>
+  <li><strong>12:00</strong> — autobus 81 → Saint-Jean-Cap-Ferrat (~15 min). Sygnalizuj zatrzymanie!</li>
+  <li><strong>12:30</strong> — lunch przy porcie Saint-Jean (boulangerie lub bistro portowe)</li>
+  <li><strong>14:00</strong> — <strong>Sentier du Littoral wokół Cap Ferrat</strong>: pełna pętla ~8 km po skałach i zatoczkach<span class="badge badge-free">gratis</span>. Villa Ephrussi widoczna z trasy.</li>
   <li><strong>16:30</strong> — Beaulieu-sur-Mer: Villa Kérylos z zewnątrz, bulwar belle époque</li>
   <li><strong>17:30</strong> — pociąg TER Beaulieu → Nice (~12 min)</li>
   <li><strong>20:00</strong> — kolacja Nice</li>
@@ -147,15 +171,15 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
 <div class="day-card" style="border-left:3px solid #1D9E75">
 <div class="day-header">
   <div class="day-num" style="background:#E1F5EE;color:#085041">D5</div>
-  <div><div class="day-title">Dzień natury + trening biegowy #1 <span class="badge badge-run">10 km</span></div><div class="day-date">Piątek, 1 maja (Święto Pracy)</div></div>
+  <div><div class="day-title">Dzień natury + trening biegowy #1 <span class="badge badge-run">10 km</span></div><div class="day-date">Piątek, 1 maja (Święto Pracy — wiele sklepów zamkniętych)</div></div>
 </div>
 <ul class="timeline">
-  <li><strong>9:30</strong> — <strong>Bieg 10 km na Promenade des Anglais</strong>: Port Lympia → próg lotniska i z powrotem<span class="badge badge-run">10 km</span></li>
-  <li><strong>11:00</strong> — prysznic, brunch</li>
+  <li><strong>9:30</strong> — <strong>Bieg 10 km — Promenade des Anglais</strong>: Port Lympia → próg lotniska i z powrotem. Płaski, ikoniczny, widok na morze przez całą trasę.<span class="badge badge-run">10 km</span></li>
+  <li><strong>11:00</strong> — prysznic, brunch (kawiarnie i piekarnie otwarte mimo święta)</li>
   <li><strong>13:00</strong> — Parc du Mont Boron: leśny park, Fort du Mont Alban, panorama na obie zatoki<span class="badge badge-free">gratis</span></li>
-  <li><strong>16:00</strong> — Cimiez: Ogrody Klasztoru, arena rzymska, "Fête des Mai"<span class="badge badge-free">gratis</span></li>
-  <li><strong>18:00</strong> — Musée Matisse (~10€)</li>
-  <li><strong>20:00</strong> — kolacja w bistro przy rue Masséna</li>
+  <li><strong>16:00</strong> — Cimiez: Ogrody Klasztorne, arena rzymska, Fête des Mai<span class="badge badge-free">gratis</span></li>
+  <li><strong>18:00</strong> — Musée Matisse (~10€) — zazwyczaj otwarty mimo święta, sprawdź przed wyjazdem</li>
+  <li><strong>20:00</strong> — kolacja Vieux Nice lub rue Masséna</li>
 </ul>
 </div>
 
@@ -165,55 +189,59 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
   <div><div class="day-title">Menton → przeprowadzka do Antibes</div><div class="day-date">Sobota, 2 maja</div></div>
 </div>
 <ul class="timeline">
+  <li><strong>8:30</strong> — wymeldowanie z Nicei. <span class="badge badge-fix">Bagaże: consigne bagages</span> na stacji Nice-Ville (~5–8€/szt., automaty 24h). Nie targaj walizek do Menton!</li>
   <li><strong>9:00</strong> — pociąg TER Nice → Menton (~38 min, ~6€)</li>
-  <li><strong>10:00</strong> — Stare Miasto: Rue Longue, pastelowe fasady</li>
-  <li><strong>10:30</strong> — Basilique Saint-Michel: mozaikowy plac, widok na morze<span class="badge badge-free">gratis</span></li>
-  <li><strong>11:00</strong> — Jardin Botanique du Val Rahmeh (~8€) — tropikalne ogrody</li>
-  <li><strong>12:30</strong> — Musée Jean Cocteau — Salle des Mariages (3€)</li>
-  <li><strong>13:30</strong> — lunch: barbagiuan, tarte au citron, owoce morza</li>
-  <li><strong>15:00</strong> — pociąg TER Menton → Antibes (~1h15, ~10€)</li>
-  <li><strong>17:00</strong> — zameldowanie w Antibes / Juan-les-Pins</li>
-  <li><strong>18:00</strong> — Stare Miasto Antibes: Marché Provençal, mury</li>
-  <li><strong>20:00</strong> — kolacja Antibes</li>
+  <li><strong>10:00</strong> — Stare Miasto: Rue Longue, pastelowe fasady pogranicza włosko-francuskiego</li>
+  <li><strong>10:30</strong> — Basilique Saint-Michel-Archange: mozaikowy plac z otoczaków, panorama na morze<span class="badge badge-free">gratis</span></li>
+  <li><strong>11:00</strong> — Jardin Botanique du Val Rahmeh (~8€) — tropikalne rośliny, wyjątkowe ogrody</li>
+  <li><strong>12:30</strong> — Musée Jean Cocteau — Salle des Mariages w Ratuszu (3€, unikalne freski)</li>
+  <li><strong>13:30</strong> — lunch Menton: barbagiuan, tarte au citron, ryby</li>
+  <li><strong>15:00</strong> — pociąg Menton → Nice-Ville (~38 min). Odbiór bagaży z consigne.</li>
+  <li><strong>16:30</strong> — pociąg TER Nice → Antibes (~25 min, ~6€)</li>
+  <li><strong>17:30</strong> — zameldowanie w Antibes / Juan-les-Pins</li>
+  <li><strong>19:00</strong> — pierwsze spotkanie ze Starym Miastem Antibes: mury Grimaldich, Cours Masséna</li>
+  <li><strong>20:30</strong> — kolacja Antibes</li>
 </ul>
 </div>
 
-<div class="day-card">
+<div class="day-card" style="border-left:3px solid #BA7517">
 <div class="day-header">
-  <div class="day-num" style="background:#E6F1FB;color:#0C447C">D7</div>
-  <div><div class="day-title">Grasse + Saint-Paul-de-Vence</div><div class="day-date">Niedziela, 3 maja</div></div>
+  <div class="day-num" style="background:#FAEEDA;color:#633806">D7</div>
+  <div><div class="day-title">Grasse + Saint-Paul-de-Vence + Cap d'Antibes <span class="badge badge-car">auto — dzień 1/2</span></div><div class="day-date">Niedziela, 3 maja</div></div>
 </div>
 <ul class="timeline">
-  <li><strong>9:30</strong> — pociąg Antibes → Cannes → Grasse (~50 min łącznie, ~5€)</li>
-  <li><strong>10:30</strong> — Grasse: Stare Miasto, Katedra Notre-Dame, panorama</li>
-  <li><strong>11:00</strong> — Fabryka Fragonard (bezpłatne zwiedzanie z przewodnikiem)<span class="badge badge-free">gratis</span></li>
-  <li><strong>12:00</strong> — Musée International de la Parfumerie (9€)</li>
-  <li><strong>13:00</strong> — lunch na Place aux Herbes</li>
-  <li><strong>14:30</strong> — pociąg Grasse → Cannes → Cagnes-sur-Mer (~45 min)</li>
-  <li><strong>15:30</strong> — autobus 400 Cagnes → Saint-Paul-de-Vence (~25 min, ~3€)</li>
-  <li><strong>16:00</strong> — Saint-Paul-de-Vence: mury, galerie, widok na Alpy<span class="badge badge-free">gratis</span>. Fondation Maeght (20€)</li>
-  <li><strong>18:30</strong> — powrót do Antibes</li>
-  <li><strong>20:00</strong> — kolacja Antibes</li>
+  <li><strong>9:00</strong> — odbiór auta w Antibes / Juan-les-Pins (wynajem 2-dniowy D7+D8, ~80–85€ łącznie)</li>
+  <li><strong>9:30</strong> — wyjazd do <strong>Grasse</strong> bezpośrednio przez D35 (~35 min, 30 km — bez autostrady)</li>
+  <li><strong>10:15</strong> — Grasse Stare Miasto: Katedra Notre-Dame, taras widokowy na wybrzeże z Parvis<span class="badge badge-free">gratis</span></li>
+  <li><strong>11:00</strong> — Fabryka Fragonard: bezpłatne zwiedzanie z przewodnikiem (angielski/francuski) — historia prowansalskich perfum<span class="badge badge-free">gratis</span></li>
+  <li><strong>12:00</strong> — Musée International de la Parfumerie (9€) — jeden z najlepszych muzeów tematycznych Riwiery</li>
+  <li><strong>13:00</strong> — lunch Place aux Herbes lub boulangerie z widokiem</li>
+  <li><strong>14:00</strong> — wyjazd do <strong>Saint-Paul-de-Vence</strong> (~30 min przez D2210)</li>
+  <li><strong>14:30</strong> — Saint-Paul-de-Vence: mury obronne XIV w., galerie sztuki, panorama na Alpy i morze<span class="badge badge-free">gratis</span></li>
+  <li><strong>15:00</strong> — Fondation Maeght (20€) — Miró, Calder, Giacometti w ogrodach</li>
+  <li><strong>17:00</strong> — powrót autem do Antibes (~25 min)</li>
+  <li><strong>17:30</strong> — <strong>Cap d'Antibes — Sentier du Littoral "Tire-Poil"</strong>: ~5 km pętla. Parkuj przy Plage de la Garoupe. Skaliste ścieżki, turkusowe zatoki, Nicea i Alpy w tle.<span class="badge badge-free">gratis</span></li>
+  <li><strong>19:30</strong> — powrót do Antibes, auto na noc, kolacja</li>
 </ul>
 </div>
 
 <div class="day-card" style="border-left:3px solid #BA7517">
 <div class="day-header">
   <div class="day-num" style="background:#FAEEDA;color:#633806">D8</div>
-  <div><div class="day-title">Trening #2 + Saint-Tropez + Port Grimaud <span class="badge badge-car">wynajem auta</span></div><div class="day-date">Poniedziałek, 4 maja</div></div>
+  <div><div class="day-title">Trening #2 + Saint-Tropez + Port Grimaud <span class="badge badge-car">auto — dzień 2/2</span></div><div class="day-date">Poniedziałek, 4 maja</div></div>
 </div>
 <ul class="timeline">
-  <li><strong>7:30</strong> — <strong>Bieg 10 km</strong>: Antibes → Juan-les-Pins wzdłuż plaży i z powrotem<span class="badge badge-run">10 km</span></li>
+  <li><strong>7:30</strong> — <strong>Bieg 10 km — Cap d'Antibes Sentier du Littoral</strong>: Bastion Saint-André → skaliste wybrzeże wokół przylądka → Plage de la Garoupe → powrót. ~10 km o świcie.<span class="badge badge-run">10 km</span></li>
   <li><strong>9:30</strong> — prysznic, śniadanie</li>
-  <li><strong>10:30</strong> — odbiór auta w Antibes / Juan-les-Pins (~50€/dzień)</li>
-  <li><strong>11:00</strong> — wyjazd A8 → D98 → Saint-Tropez (~1h15)</li>
-  <li><strong>12:30</strong> — Vieux Port: kolorowe domy, jachty, tarte tropézienne!</li>
-  <li><strong>13:30</strong> — Place des Lices, Citadelle (7€), dzielnica La Ponche</li>
-  <li><strong>15:30</strong> — autem do Port Grimaud (~10 min)</li>
-  <li><strong>15:45</strong> — Port Grimaud: "Wenecja Prowansji", kanały, mosty<span class="badge badge-free">gratis</span></li>
-  <li><strong>17:00</strong> — powrót A8 do Antibes (~1h15)</li>
-  <li><strong>18:30</strong> — zwrot auta, wieczorny spacer Sentier du Littoral Cap d'Antibes</li>
-  <li><strong>20:00</strong> — ostatnia kolacja Antibes</li>
+  <li><strong>10:30</strong> — wyjazd autem: A8 → D98 → Saint-Tropez (~1h15, ~75 km)</li>
+  <li><strong>12:00</strong> — <strong>Saint-Tropez Vieux Port</strong>: kolorowe domy rybaków, jachty, kawiarnie. Tarte tropézienne — obowiązek!</li>
+  <li><strong>13:00</strong> — Place des Lices, Citadelle (7€ — widok na zatokę), dzielnica La Ponche</li>
+  <li><strong>15:00</strong> — autem do <strong>Port Grimaud</strong> (~10 min, parking przy wejściu)</li>
+  <li><strong>15:15</strong> — Port Grimaud "Wenecja Prowansji": kanały, kolorowe domy, mosty<span class="badge badge-free">gratis</span></li>
+  <li><strong>16:30</strong> — powrót A8 do Antibes (~1h15)</li>
+  <li><strong>18:00</strong> — zwrot auta</li>
+  <li><strong>18:30</strong> — wieczorny spacer: Musée Picasso (z zewnątrz), mury nad morzem</li>
+  <li><strong>20:00</strong> — ostatnia kolacja Antibes, wino prowansalskie</li>
 </ul>
 </div>
 
@@ -223,26 +251,27 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
   <div><div class="day-title">Antibes → lotnisko Nice — odlot</div><div class="day-date">Wtorek, 5 maja</div></div>
 </div>
 <ul class="timeline">
-  <li><strong>9:00</strong> — wymeldowanie, śniadanie</li>
-  <li><strong>9:30</strong> — ostatni spacer: Musée Picasso (zewnątrz), plaża Juan-les-Pins</li>
-  <li><strong>11:00</strong> — pociąg TER Antibes → Nice Aéroport (~35 min)</li>
-  <li><strong>12:00</strong> — odprawa (odlot 14:25)</li>
+  <li><strong>9:00</strong> — wymeldowanie, śniadanie przy Cours Masséna</li>
+  <li><strong>9:30</strong> — ostatni spacer: plaża Juan-les-Pins, widok na Alpy z molo</li>
+  <li><strong>11:00</strong> — pociąg TER Antibes → Nice-Ville (~25 min) + tramwaj T2 do lotniska (~20 min)</li>
+  <li><strong>12:15</strong> — lotnisko Nice Côte d'Azur, odprawa</li>
+  <li><strong>14:25</strong> — odlot</li>
 </ul>
 </div>
-
 </div>
 
+<!-- BAZY -->
 <div id="bases" class="section">
 <div class="base-card">
 <div class="bcard" style="border-top:3px solid #185FA5">
   <div class="bcard-head">Baza 1 — Nicea</div>
   <div class="bcard-nights">5 nocy · 27.04 – 02.05</div>
   <ul class="tip-list">
-    <li>Rejon: Libération lub Gare Nice-Ville (tramwaj T1, pociągi TER)</li>
+    <li>Rejon: Libération lub Gare Nice-Ville (tramwaj T1, pociągi TER blisko)</li>
     <li>Airbnb: 55–80€/noc za pokój lub studio</li>
-    <li>Hotel 2-3*: 75–110€/noc (Hôtel Wilson, Hôtel Ozz, Hôtel Brice)</li>
-    <li>Unikaj Promenade des Anglais — 2× drożej za widok</li>
-    <li>Hub do całego wschodniego wybrzeża i Cannes</li>
+    <li>Hotel 2–3*: 75–110€/noc (Hôtel Wilson, Hôtel Ozz, Hôtel Brice)</li>
+    <li>Unikaj Promenade des Anglais — 2× drożej za sam widok</li>
+    <li>Hub do wschodniego wybrzeża, Cannes i Menton</li>
   </ul>
 </div>
 <div class="bcard" style="border-top:3px solid #1D9E75">
@@ -253,138 +282,142 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
     <li>Airbnb: 50–75€/noc za pokój</li>
     <li>Hotel 2*: 70–95€/noc (Ibis Antibes, Hôtel Beau Site)</li>
     <li>Blisko stacji TER: Cannes 15 min, Nice 25 min</li>
-    <li>Świetna baza dla Saint-Tropez autem i Grasse pociągiem</li>
+    <li>Idealna baza dla 2-dniowego wynajmu auta (D7+D8)</li>
   </ul>
 </div>
 </div>
-<div class="alert">Dlaczego 2 bazy? Antibes jako baza zachodnia oszczędza 45 min przejazdu dziennie w ostatnie 3 dni i jest idealnym punktem startowym dla dnia z autem do Saint-Tropez. Koszt przeprowadzki: 1 przejazd pociągiem ~10€.</div>
+<div class="alert">Dlaczego 2 bazy? Antibes zachodnia oszczędza 45 min przejazdu dziennie w ostatnie 3 dni i jest idealnym punktem startowym dla auta do Grasse i Saint-Tropez. Koszt przeprowadzki: 1 przejazd ~6€ + consigne bagages ~10–15€.</div>
 <div class="info-card">
   <div class="info-title">Lotnisko → centrum Nice</div>
-  <div class="info-row"><div class="info-label">Tramwaj T2</div><div class="info-val">~30 min · 1,70€ · co 4–6 min · najwygodniej</div></div>
-  <div class="info-row"><div class="info-label">Taksówka</div><div class="info-val">~25–35€ · tylko z dużym bagażem</div></div>
+  <div class="info-row"><div class="info-label">Tramwaj T2</div><div class="info-val">~30 min · 1,70€ · co 4–6 min · najwygodniej z bagażem</div></div>
+  <div class="info-row"><div class="info-label">Taksówka</div><div class="info-val">~25–35€ · tylko z bardzo dużym bagażem lub późno w nocy</div></div>
+  <div class="info-row"><div class="info-label">Do Antibes</div><div class="info-val">Tramwaj T2 do Gare Nice-Ville, potem TER do Antibes (~25 min, ~6€)</div></div>
 </div>
 </div>
 
+<!-- WYDARZENIA -->
 <div id="events" class="section">
 <div class="event-card">
   <div class="event-name">CANNESERIES — Sezon 9 <span class="badge badge-event">BEZPŁATNE</span></div>
   <div class="event-meta">23–28 kwietnia 2026 · Palais des Festivals, Cannes</div>
-  <div class="event-desc">Międzynarodowy Festiwal Seriali. Pokazy premier, różowy dywan, gwiazdy (Richard Gadd, Adam Scott). 25 seriali z całego świata. Bilety bezpłatne online od 7 kwietnia. Ostatni dzień = Twój Dzień 2!</div>
+  <div class="event-desc">Międzynarodowy Festiwal Seriali na Croisette. Pokazy premier, różowy dywan, gwiazdy (Richard Gadd z "Mon petit renne", Adam Scott z "Severance"). 25 seriali z całego świata. Bilety bezpłatne — dostępne online od 7 kwietnia. Ostatni dzień festiwalu = Twój Dzień 2!</div>
 </div>
 <div class="event-card amber">
   <div class="event-name">Grand Prix de Monaco Historique — 15. edycja</div>
   <div class="event-meta">24–26 kwietnia 2026 · Circuit de Monaco</div>
-  <div class="event-desc">Wyścigi historycznych bolidów F1 z lat 60–80. Kończy się dzień przed Twoim przylotm — bariery toru mogą jeszcze stać 27–28.04. Spacer po torze F1 będzie wyjątkowy.</div>
+  <div class="event-desc">Wyścigi historycznych bolidów F1 z lat 60–80. Kończy się dzień przed Twoim przylotm. W D3 (29.04) bariery i banery toru mogą jeszcze stać — spacer po torze F1 będzie wyjątkowy.</div>
 </div>
 <div class="event-card green">
   <div class="event-name">Art Monte-Carlo</div>
   <div class="event-meta">29 kwietnia – 1 maja 2026 · Grimaldi Forum, Monaco</div>
-  <div class="event-desc">Prestiżowe targi sztuki współczesnej. Zewnętrzne ekspozycje częściowo bezpłatne. Pokrywa się z Dniem 3 — opening day podczas Twojej wizyty w Monako.</div>
+  <div class="event-desc">Prestiżowe targi sztuki współczesnej. Zewnętrzne ekspozycje wokół budynku częściowo bezpłatne. Trafiasz na opening day podczas Twojej wizyty w Monako (D3).</div>
 </div>
 <div class="event-card" style="border-left-color:#D4537E">
   <div class="event-name">Festival des Jardins de la Côte d'Azur <span class="badge badge-free">bezpłatny</span></div>
   <div class="event-meta">Przez cały pobyt · Nice, Cannes, Grasse, Menton, Monaco</div>
-  <div class="event-desc">Bienny festiwal efemerycznych ogrodów artystycznych rozsianych po departamencie. Instalacje krajobrazowe dostępne bezpłatnie w Jardin Albert I (Nice) i okolicach Antibes.</div>
+  <div class="event-desc">Bienny festiwal efemerycznych ogrodów artystycznych. Instalacje w Jardin Albert I (Nice), okolicach Antibes i Grasse — wszystkie bezpłatne.</div>
 </div>
 <div class="event-card green">
   <div class="event-name">Fête des Roses — Villa Ephrussi de Rothschild</div>
   <div class="event-meta">3–4 maja 2026 · Saint-Jean-Cap-Ferrat</div>
-  <div class="event-desc">Święto różańców w jednej z najpiękniejszych posiadłości Riwiery. Wejście ~20€. Można dojechać z Antibes: pociąg do Beaulieu, autobus do Cap Ferrat.</div>
+  <div class="event-desc">Święto różańców w jednej z najpiękniejszych posiadłości Riwiery (~20€). W D7 masz auto — możesz podjechać rano przed Grasse (30 min z Antibes) jeśli chcesz to połączyć.</div>
 </div>
 <div class="event-card" style="border-left-color:#7F77DD">
   <div class="event-name">Kooltura Festival #2</div>
   <div class="event-meta">2 maja 2026, od 16:00 · Théâtre de Verdure, Nice</div>
-  <div class="event-desc">Festival kultury w zielonym amfiteatrze. Wypada w dniu przeprowadzki do Antibes — możesz zajrzeć po południu przed wyjazdem.</div>
+  <div class="event-desc">Festival kultury w amfiteatrze. Wypada w D6 — możesz zajrzeć przed odbiorem bagaży i wyjazdem do Antibes.</div>
 </div>
 <div class="sep"></div>
 <div class="info-card">
   <div class="info-title">F1 Grand Prix Monaco 2026</div>
-  <div class="info-row"><div class="info-label">Data</div><div class="info-val">4–7 CZERWCA 2026 — miesiąc po Twoim pobycie. GP Historyczne (24–26.04) jest równie widowiskowe wizualnie!</div></div>
+  <div class="info-row"><div class="info-label">Data wyścigu</div><div class="info-val">4–7 CZERWCA 2026 — miesiąc po Twoim pobycie. GP Historyczne (24–26.04) jest równie widowiskowe wizualnie i tańsze w biletach.</div></div>
 </div>
 </div>
 
+<!-- TRANSPORT -->
 <div id="transport" class="section">
-<div class="alert">Kluczowa rada: kup <strong>Pass Sud Azur 7 dni</strong> (~30–40€) — obejmuje TER, tramwaje, autobusy Lignes d'Azur i ZOU! w całych Alpach Nadmorskich.</div>
+<div class="alert">Kluczowa rada: kup <strong>Pass Sud Azur 7 dni</strong> (~30–40€) — obejmuje TER, tramwaje, autobusy Lignes d'Azur i ZOU! w całych Alpach Nadmorskich. Opłaca się już od ~4 przejazdów dziennie.</div>
 <div class="info-card">
   <div class="info-title">Trasy pociągowe TER</div>
   <div class="info-row"><div class="info-label">Nice → Monaco</div><div class="info-val">~22 min · ~4€ (co 30 min)</div></div>
   <div class="info-row"><div class="info-label">Nice → Menton</div><div class="info-val">~38 min · ~6€ (co 30 min)</div></div>
   <div class="info-row"><div class="info-label">Nice → Cannes</div><div class="info-val">~35 min · ~8€ (co 20–30 min)</div></div>
-  <div class="info-row"><div class="info-label">Cannes → Antibes</div><div class="info-val">~15 min · ~4€</div></div>
-  <div class="info-row"><div class="info-label">Cannes → Grasse</div><div class="info-val">~35 min · ~5€</div></div>
-  <div class="info-row"><div class="info-label">Antibes → Lotnisko</div><div class="info-val">~35 min (przez Nice-Ville + tramwaj T2)</div></div>
+  <div class="info-row"><div class="info-label">Nice → Antibes</div><div class="info-val">~25 min · ~6€</div></div>
+  <div class="info-row"><div class="info-label">Antibes → Cannes</div><div class="info-val">~15 min · ~4€</div></div>
+  <div class="info-row"><div class="info-label">Antibes → lotnisko</div><div class="info-val">Antibes → Nice-Ville (~25 min) + tramwaj T2 (~20 min)</div></div>
 </div>
 <div class="info-card">
   <div class="info-title">Autobusy ZOU! / Lignes d'Azur</div>
   <div class="info-row"><div class="info-label">Linia 600</div><div class="info-val">Nice ↔ Monaco ↔ Menton — malownicza nadmorska, co 10–20 min, ~2–3€</div></div>
-  <div class="info-row"><div class="info-label">Bus 112</div><div class="info-val">Monaco → Eze Village ~20 min, ~2€</div></div>
-  <div class="info-row"><div class="info-label">Bus 400</div><div class="info-val">Cagnes-sur-Mer → Saint-Paul-de-Vence ~25 min, ~3€</div></div>
+  <div class="info-row"><div class="info-label">Linia 655</div><div class="info-val">Cagnes-sur-Mer → Saint-Paul-de-Vence → Vence (rezerwowa trasa bez auta)</div></div>
   <div class="info-row"><div class="info-label">Bus 81</div><div class="info-val">Villefranche → Saint-Jean-Cap-Ferrat ~15 min</div></div>
-  <div class="info-row"><div class="info-label">Tramwaj T2</div><div class="info-val">Lotnisko → centrum Nice ~30 min, 1,70€</div></div>
+  <div class="info-row"><div class="info-label">Tramwaj T2</div><div class="info-val">Lotnisko ↔ centrum Nice ~30 min, 1,70€</div></div>
 </div>
 <div class="info-card">
-  <div class="info-title">Wynajem auta — Saint-Tropez (1 dzień, 2 osoby)</div>
-  <div class="info-row"><div class="info-label">Odbiór</div><div class="info-val">Antibes lub Juan-les-Pins</div></div>
-  <div class="info-row"><div class="info-label">Cena</div><div class="info-val">~40–55€/dzień economy (Clio, Peugeot 208)</div></div>
-  <div class="info-row"><div class="info-label">Trasa</div><div class="info-val">Antibes → A8 → Fréjus → D98 → St-Tropez · ~75 km, ~1h15</div></div>
-  <div class="info-row"><div class="info-label">Koszt całkowity</div><div class="info-val">~87€ dla 2 osób (auto + paliwo + toll + parkingi)</div></div>
-  <div class="info-row"><div class="info-label">Vs. prom</div><div class="info-val">Prom Cannes→St-Tropez: 70€/os. = 140€ dla 2, bez Port Grimaud. Auto wygrywa!</div></div>
+  <div class="info-title">Wynajem auta — D7+D8 (2 dni, 2 osoby)</div>
+  <div class="info-row"><div class="info-label">Odbiór/zwrot</div><div class="info-val">Antibes lub Juan-les-Pins (kilka wypożyczalni przy stacji TER)</div></div>
+  <div class="info-row"><div class="info-label">Cena 2 dni</div><div class="info-val">~80–85€ łącznie za economy (taniej niż 2 × 1 dzień z osobna)</div></div>
+  <div class="info-row"><div class="info-label">D7 trasa</div><div class="info-val">Antibes → Grasse (D35, ~35 min) → Saint-Paul-de-Vence (D2210, ~30 min) → Cap d'Antibes → Antibes</div></div>
+  <div class="info-row"><div class="info-label">D8 trasa</div><div class="info-val">Antibes → A8 → D98 → Saint-Tropez (~1h15) → Port Grimaud (~10 min) → A8 → Antibes</div></div>
+  <div class="info-row"><div class="info-label">Koszt D7+D8 łącznie</div><div class="info-val">~120–130€ / 2 osoby (wynajem + paliwo + autostrady + parkingi)</div></div>
 </div>
 <div class="info-card">
-  <div class="info-title">Aplikacje</div>
-  <div class="info-row"><div class="info-label">ZOU!</div><div class="info-val">Bilety online, rozkłady, płatność kartą w autobusie</div></div>
-  <div class="info-row"><div class="info-label">SNCF Connect</div><div class="info-val">Rezerwacja TER, bilety online (taniej niż w kasie)</div></div>
-  <div class="info-row"><div class="info-label">Citymapper</div><div class="info-val">Nawigacja z rozkładami jazdy Nice + Cannes</div></div>
+  <div class="info-title">Aplikacje do zainstalowania przed wyjazdem</div>
+  <div class="info-row"><div class="info-label">SNCF Connect</div><div class="info-val">Bilety TER online, e-bilet na telefon — brak problemu z kompostowaniem</div></div>
+  <div class="info-row"><div class="info-label">ZOU!</div><div class="info-val">Bilety autobusowe online, rozkłady, linia 80 akceptuje kartę w autobusie</div></div>
+  <div class="info-row"><div class="info-label">Google Maps</div><div class="info-val">Najwygodniejszy do planowania połączeń publicznych na bieżąco</div></div>
 </div>
 </div>
 
+<!-- JEDZENIE -->
 <div id="food" class="section">
 <div class="info-card">
   <div class="info-title">Nicea</div>
-  <div class="info-row"><div class="info-label">Socca</div><div class="info-val">Chez René Socca (Pl. Rosetti) lub Chez Pipo (Port) · ~3–5€ · bez rezerwacji</div></div>
-  <div class="info-row"><div class="info-label">Pan bagnat</div><div class="info-val">Okrągła bułka z tuńczykiem, jajkiem, anchois, oliwkami, oliwą · ~5€ na targach</div></div>
-  <div class="info-row"><div class="info-label">Pissaladière</div><div class="info-val">Cebulowy placek z oliwkami · boulangerie Vieux Nice · ~3€</div></div>
-  <div class="info-row"><div class="info-label">Pistou</div><div class="info-val">Prowansalskie pesto (bazylia, czosnek, oliwa) · jako soupe au pistou ~12–15€ w bistro</div></div>
-  <div class="info-row"><div class="info-label">Ratatouille</div><div class="info-val">Duszone warzywa prowansalskie · ~12–16€ z pieczywem</div></div>
-  <div class="info-row"><div class="info-label">Bistro</div><div class="info-val">Cave Romagnan, L'Escalinada, Chez Palmyre · menu du jour 13–18€</div></div>
+  <div class="info-row"><div class="info-label">Socca</div><div class="info-val">Chez René Socca (Pl. Rosetti) lub Chez Pipo (Port) · ~3–5€ · bez rezerwacji, kolejka przy okienku</div></div>
+  <div class="info-row"><div class="info-label">Pan bagnat</div><div class="info-val">Okrągła bułka z tuńczykiem, jajkiem, anchois, oliwkami i oliwą · ~5€ na Cours Saleya</div></div>
+  <div class="info-row"><div class="info-label">Pissaladière</div><div class="info-val">Cebulowy placek z oliwkami i anchois · każda boulangerie Vieux Nice · ~3€</div></div>
+  <div class="info-row"><div class="info-label">Pistou / ratatouille</div><div class="info-val">Cave Romagnan, L'Escalinada, Chez Palmyre w Vieux Nice · menu du jour 13–18€</div></div>
+  <div class="info-row"><div class="info-label">Piknik</div><div class="info-val">Targ Libération (wt–nd rano) · sery, owoce, charcuterie · ideal na Parc du Mont Boron</div></div>
 </div>
 <div class="info-card">
   <div class="info-title">Cannes</div>
-  <div class="info-row"><div class="info-label">Marché Forville</div><div class="info-val">Kryty targ przy Vieux Port · gotowe dania, sery, oliwki · tanie</div></div>
-  <div class="info-row"><div class="info-label">Le Suquet</div><div class="info-val">Menu du jour ok. 14€, dobre widoki ze wzgórza</div></div>
+  <div class="info-row"><div class="info-label">Marché Forville</div><div class="info-val">Kryty targ przy Vieux Port · gotowe dania, sery, oliwki · tanie i dobre</div></div>
+  <div class="info-row"><div class="info-label">Le Suquet</div><div class="info-val">Stare miasto · menu du jour ok. 14€ · lepsze od Croisette</div></div>
 </div>
 <div class="info-card">
   <div class="info-title">Menton</div>
-  <div class="info-row"><div class="info-label">Barbagiuan</div><div class="info-val">Nadziewane pierożki (ricotta + blettes) · ~3–4€</div></div>
+  <div class="info-row"><div class="info-label">Barbagiuan</div><div class="info-val">Nadziewane pierożki (ricotta, blettes) — specjalność regionu · ~3–4€</div></div>
   <div class="info-row"><div class="info-label">Tarte au citron</div><div class="info-val">Menton = stolica cytryn · każda boulangerie ~3€</div></div>
 </div>
 <div class="info-card">
   <div class="info-title">Antibes</div>
-  <div class="info-row"><div class="info-label">Marché Provençal</div><div class="info-val">Codziennie rano pod Cours Masséna · sery, zioła, oliwki prowansalskie</div></div>
-  <div class="info-row"><div class="info-label">Restauracje</div><div class="info-val">Rue James Close, Rue de la Touraque · menu ~15–20€</div></div>
+  <div class="info-row"><div class="info-label">Marché Provençal</div><div class="info-val">Codziennie rano pod Cours Masséna · sery kozie, zioła, oliwki prowansalskie</div></div>
+  <div class="info-row"><div class="info-label">Bistro</div><div class="info-val">Rue James Close, Rue de la Touraque · menu ~15–20€</div></div>
 </div>
 <div class="info-card">
-  <div class="info-title">Saint-Tropez</div>
-  <div class="info-row"><div class="info-label">Tarte tropézienne</div><div class="info-val">Brioche z kremem — oryginalna w Pâtisserie Sénéquier lub La Tarte Tropézienne · ~5€</div></div>
-  <div class="info-row"><div class="info-label">Tanie lunch</div><div class="info-val">Sandwich przy rue Allard. Unikaj restauracji nad portem — bardzo drogie!</div></div>
+  <div class="info-title">Saint-Tropez — uwaga na ceny!</div>
+  <div class="info-row"><div class="info-label">Tarte tropézienne</div><div class="info-val">Brioche z kremem waniliowym · Pâtisserie Sénéquier lub La Tarte Tropézienne · ~5€</div></div>
+  <div class="info-row"><div class="info-label">Tanie</div><div class="info-val">Sandwich przy rue Allard. Restauracje przy Vieux Port = 30–40€ za makaron. Omijaj szerokim łukiem.</div></div>
 </div>
 </div>
 
+<!-- BIEGI -->
 <div id="run" class="section">
 <div class="run-box" style="border-left:3px solid #1D9E75">
   <div class="run-title">Trening #1 — Promenade des Anglais, Nicea <span class="badge badge-run">10 km · D5 · 1 maja</span></div>
-  <div class="run-desc">Start przy Port Lympia → na zachód Promenadą → do progu lotniska i z powrotem = ~10 km. Płaski asfalt, szeroka ścieżka dla biegaczy, widok na Morze Śródziemne przez całą trasę. Najlepiej 7:30–9:30 przed słońcem. Jedna z najsłynniejszych promenad na świecie.</div>
+  <div class="run-desc">Start przy Port Lympia → na zachód Promenadą des Anglais → do progu lotniska i z powrotem = ~10 km. Płaski asfalt, szeroka ścieżka dla biegaczy, widok na Morze Śródziemne przez całą trasę. Jedna z najsłynniejszych promenad na świecie. Najlepiej 9:00–10:30.</div>
 </div>
 <div class="run-box" style="border-left:3px solid #1D9E75">
-  <div class="run-title">Trening #2 — Bulwar Antibes–Juan-les-Pins <span class="badge badge-run">10 km · D8 · 4 maja</span></div>
-  <div class="run-desc">Start od Bastion Saint-André (Antibes) → wzdłuż plaży Garoupe → Juan-les-Pins i z powrotem = ~10–11 km. Plaże, skaliste wybrzeże, sosny śródziemnomorskie. Bieg o 7:30 przed odbiorem auta. Widok na góry Esterel na horyzoncie.</div>
+  <div class="run-title">Trening #2 — Sentier du Littoral "Tire-Poil", Cap d'Antibes <span class="badge badge-run">10 km · D8 · 4 maja</span></div>
+  <div class="run-desc">Start od Bastion Saint-André (Antibes) → Sentier du Littoral wzdłuż skalnego wybrzeża → pętla wokół południowego cypla Cap d'Antibes → Plage de la Garoupe → powrót = ~10 km. Skaliste ścieżki, turkusowe zatoki, sosny pińskie, widok na Nicea i Alpy o świcie. Bieg o 7:30 przed śniadaniem. Dwa w jednym: trening + zwiedzanie Cap d'Antibes.</div>
 </div>
 <div class="info-card">
   <div class="info-title">Opcja dodatkowa — Sentier Nietzschego (D3)</div>
-  <div class="info-row"><div class="info-label">Trasa</div><div class="info-val">Eze Village → Eze-sur-Mer · ~6 km w dół · ścieżka leśna nad skałami (~30–40% nachylenia). Absolutne widoki — nieformalne zakończenie dnia.</div></div>
+  <div class="info-row"><div class="info-label">Trasa</div><div class="info-val">Eze Village → Eze-sur-Mer · ~6 km w dół po skalistym szlaku leśnym (~1,5h). Start max 17:00. Bardziej trekking niż bieg (nachylenie 30–40%), ale widoki absolutnie wyjątkowe.</div></div>
 </div>
 </div>
 
+<!-- BUDŻET -->
 <div id="budget" class="section">
 <div class="info-card">
   <div class="info-title">Szacunkowy budżet dzienny na osobę (bez noclegu)</div>
@@ -397,33 +430,174 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
 </div>
 <div class="grid2">
 <div class="info-card">
-  <div class="info-title">Koszt auta D8 (2 osoby łącznie)</div>
-  <div class="budget-row"><div class="budget-cat">Wynajem economy 1 dzień</div><div class="budget-val">~50€</div></div>
-  <div class="budget-row"><div class="budget-cat">Autostrada A8</div><div class="budget-val">~10€</div></div>
-  <div class="budget-row"><div class="budget-cat">Paliwo ~150 km</div><div class="budget-val">~15€</div></div>
-  <div class="budget-row"><div class="budget-cat">Parkingi</div><div class="budget-val">~12€</div></div>
-  <div class="budget-row"><div class="budget-cat">SUMA</div><div class="budget-val">~87€</div></div>
+  <div class="info-title">Auto D7+D8 (2 osoby łącznie)</div>
+  <div class="budget-row"><div class="budget-cat">Wynajem economy 2 dni</div><div class="budget-val">~82€</div></div>
+  <div class="budget-row"><div class="budget-cat">Autostrady (A8 D8)</div><div class="budget-val">~12€</div></div>
+  <div class="budget-row"><div class="budget-cat">Paliwo ~280 km</div><div class="budget-val">~25€</div></div>
+  <div class="budget-row"><div class="budget-cat">Parkingi D7+D8</div><div class="budget-val">~15€</div></div>
+  <div class="budget-row"><div class="budget-cat">SUMA / 2 osoby</div><div class="budget-val">~134€</div></div>
 </div>
 <div class="info-card">
-  <div class="info-title">Noclegi (estymacja)</div>
+  <div class="info-title">Noclegi</div>
   <div class="budget-row"><div class="budget-cat">Nicea (5 nocy)</div><div class="budget-val">5 × ~70€ = 350€</div></div>
   <div class="budget-row"><div class="budget-cat">Antibes (3 nocy)</div><div class="budget-val">3 × ~65€ = 195€</div></div>
-  <div class="budget-row"><div class="budget-cat">SUMA noclegi</div><div class="budget-val">~545€</div></div>
+  <div class="budget-row"><div class="budget-cat">SUMA / 2 osoby</div><div class="budget-val">~545€</div></div>
 </div>
 </div>
 <div class="info-card">
-  <div class="info-title">Koszt całkowity / osoba (bez lotów)</div>
+  <div class="info-title">Koszt całkowity na osobę (bez lotów)</div>
   <div class="budget-row"><div class="budget-cat">Noclegi (połowa)</div><div class="budget-val">~273€</div></div>
   <div class="budget-row"><div class="budget-cat">Jedzenie 9 dni (śr. 40€/dzień)</div><div class="budget-val">~360€</div></div>
-  <div class="budget-row"><div class="budget-cat">Transport (Pass 7 dni + extra)</div><div class="budget-val">~70€</div></div>
-  <div class="budget-row"><div class="budget-cat">Auto + paliwo (połowa)</div><div class="budget-val">~44€</div></div>
+  <div class="budget-row"><div class="budget-cat">Transport publiczny (Pass 7 dni + extra)</div><div class="budget-val">~70€</div></div>
+  <div class="budget-row"><div class="budget-cat">Auto D7+D8 (połowa)</div><div class="budget-val">~67€</div></div>
+  <div class="budget-row"><div class="budget-cat">Consigne bagages D6</div><div class="budget-val">~15€</div></div>
   <div class="budget-row"><div class="budget-cat">Wejścia (selektywnie)</div><div class="budget-val">~60€</div></div>
-  <div class="budget-row"><div class="budget-cat" style="font-weight:500">ŁĄCZNIE / osoba</div><div class="budget-val" style="font-weight:500">~807–960€</div></div>
+  <div class="budget-row"><div class="budget-cat" style="font-weight:500">ŁĄCZNIE / osoba</div><div class="budget-val" style="font-weight:500">~845–1 000€</div></div>
 </div>
 </div>
 
+<!-- PRZYDATNE INFO -->
+<div id="tips" class="section">
+
+<div class="pinfo-section">
+<div class="pinfo-head">Autobusy — wsiadanie, kasowanie, wysiadanie</div>
+<div class="pinfo-block">
+<div class="pinfo-block-title">Wsiadanie i kasowanie</div>
+<div class="pinfo-row"><div class="pinfo-icon">🚌</div><div class="pinfo-text"><strong>Zawsze wchodzisz przednimi drzwiami</strong> — zarówno w autobusach miejskich Lignes d'Azur w Nicei, jak i w busach ZOU! między miastami. Tak samo jak we Włoszech i Hiszpanii.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">📲</div><div class="pinfo-text">Bilet kasujesz <strong>natychmiast po wejściu</strong>. Przykładasz kartę Pass Sud Azur lub telefon (NFC) do czytnika przy kierowcy. Bilet papierowy — wkładasz w kasowarę. Kontrolerzy wsiadają losowo bez zapowiedzi.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">💳</div><div class="pinfo-text">Na linii 80 (lotnisko ↔ Menton) możesz zapłacić bezpośrednio <strong>kartą zbliżeniową przy czytniku</strong> — bez kupowania biletu wcześniej. Bardzo wygodne po przylocie.</div></div>
+</div>
+<div class="pinfo-block">
+<div class="pinfo-block-title">Czy trzeba machać na kierowcę?</div>
+<div class="pinfo-row"><div class="pinfo-icon">✋</div><div class="pinfo-text"><strong>Tak — poza centrum Nice.</strong> W centrum miasto bus zatrzymuje się zawsze. Na mniejszych przystankach (Corniche, Cap Ferrat, wioski) — <strong>wyraźnie unieś rękę</strong>. Brak sygnału = kierowca przejedzie. Warto podejść do krawężnika i patrzeć na autobus.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">📍</div><div class="pinfo-text">Przystanek z ekranem wyświetlającym czasy → autobus zwykle zatrzymuje się sam. Zwykły słupek bez ekranu → sygnalizuj zawsze, dla pewności.</div></div>
+</div>
+<div class="pinfo-block">
+<div class="pinfo-block-title">Wysiadanie</div>
+<div class="pinfo-row"><div class="pinfo-icon">🔔</div><div class="pinfo-text"><strong>Naciśnij "arrêt demandé"</strong> (żółty przycisk) z wyprzedzeniem jednego przystanku. Przyciski są na poręczach i ściankach wewnątrz autobusu. Bez naciśnięcia kierowca może nie stanąć na przystanku na żądanie.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">🚪</div><div class="pinfo-text"><strong>Wychodź środkowymi lub tylnymi drzwiami.</strong> Otwierają się automatycznie po naciśnięciu "arrêt demandé" lub przez zielony przycisk przy drzwiach.</div></div>
+</div>
 </div>
 
+<div class="pinfo-section">
+<div class="pinfo-head">Pociągi TER — bilety i kompostowanie</div>
+<div class="pinfo-block">
+<div class="pinfo-block-title">Czy trzeba kasować bilet przed wejściem na peron?</div>
+<div class="pinfo-row"><div class="pinfo-icon">⚠️</div><div class="pinfo-text"><strong>TAK — jeśli masz bilet papierowy</strong> (drukowany lub z automatu na dworcu). Przy wejściu na peron stoją żółte lub pomarańczowe automaty — "composteur". Włóż bilet → dostaniesz stempel z datą i godziną. <strong>Bez stempla bilet jest nieważny</strong> i grozi mandat. To ważna różnica vs. Włochy (gdzie też się kompastuje) i Hiszpania (gdzie nie trzeba).</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">📱</div><div class="pinfo-text"><strong>NIE — jeśli masz e-bilet w aplikacji SNCF Connect</strong> lub wydruk z kodem QR. Wystarczy pokazać kontrolerowi w pociągu. Brak kompostowania wymagany. <strong>Kupuj przez SNCF Connect</strong> — unikasz stresu.</div></div>
+</div>
+<div class="pinfo-block">
+<div class="pinfo-block-title">Praktyczne info o podróży pociągiem</div>
+<div class="pinfo-row"><div class="pinfo-icon">🖥️</div><div class="pinfo-text">Numer peronu (voie) pojawia się na tablicach zwykle <strong>5–15 minut przed odjazdem</strong>. To normalne na TER — nie panikuj.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">💺</div><div class="pinfo-text">TER = pociąg regionalny bez przypisanych miejsc. <strong>Siadasz gdzie chcesz.</strong> Bagaż na półkach nad siedzeniami lub przy końcach wagonów.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">🎫</div><div class="pinfo-text">Kontroler sprawdza bilety w trakcie jazdy. Pokaż e-bilet lub bilet papierowy ze stemplem. Zatrzymaj bilet do końca podróży.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">🔇</div><div class="pinfo-text">W pociągach TER obowiązuje cisza — Francuzi rzadko rozmawiają przez telefon w wagonie. Telefon na głośniku to faux pas.</div></div>
+</div>
+</div>
+
+<div class="pinfo-section">
+<div class="pinfo-head">Tramwaj w Nicei (linie T1, T2)</div>
+<div class="pinfo-block">
+<div class="pinfo-row"><div class="pinfo-icon">🚊</div><div class="pinfo-text"><strong>Bilet kupujesz na automacie przy przystanku</strong> przed wejściem do tramwaju. W środku nie ma sprzedaży. Kasujesz przy wejściu do wagonu — przykładasz bilet lub kartę do czytnika.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">🚪</div><div class="pinfo-text">Wchodzić i wychodzić można <strong>dowolnymi drzwiami</strong>. Drzwi otwierają się przez naciśnięcie przycisku.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">🔄</div><div class="pinfo-text">Bilet Lignes d'Azur ważny <strong>74 minuty</strong> z prawem do przesiadek tramwaj↔autobus miejski. Nie działa na busach ZOU! ani pociągach TER.</div></div>
+</div>
+</div>
+
+<div class="pinfo-section">
+<div class="pinfo-head">Kultura — Francja vs. Włochy i Hiszpania</div>
+<div class="pinfo-block">
+<div class="pinfo-block-title">Najważniejsza zasada: "Bonjour"</div>
+<div class="pinfo-row"><div class="pinfo-icon">👋</div><div class="pinfo-text"><strong>Zawsze zacznij od "Bonjour"</strong> — zanim cokolwiek powiesz, zapytasz lub zamówisz. We Włoszech jest luz, w Hiszpanii też. We Francji pominięcie powitania uchodzi za chamstwo i natychmiast tworzy nieprzychylną atmosferę. Nawet "Bonjour, do you speak English?" działa cuda.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">🏪</div><div class="pinfo-text">Wchodząc do sklepu, piekarni, apteki — <strong>powiedz głośno "Bonjour!"</strong>. Wychodząc — "Merci, au revoir!". To nie formalność, to codziennie używana norma społeczna.</div></div>
+</div>
+<div class="do-dont">
+<div class="do-box">
+  <div class="do-box-title">Rób</div>
+  <ul>
+    <li>Mów "Bonjour" przy każdym kontakcie</li>
+    <li>Proś o "carafe d'eau" (woda gratis)</li>
+    <li>Zostaw 1–2€ napiwku za kawę</li>
+    <li>Próbuj po francusku — choć jedno słowo</li>
+    <li>Pij kranówkę — bezpieczna wszędzie</li>
+    <li>Jedz o 12:30–14:00 (lunch) lub 19:30–21:00</li>
+  </ul>
+</div>
+<div class="dont-box">
+  <div class="dont-box-title">Unikaj</div>
+  <ul>
+    <li>Zagadywania bez "Bonjour" — zły start</li>
+    <li>Zamawiania jedzenia między 14:30 a 19:00</li>
+    <li>Restauracji z menu tylko po angielsku</li>
+    <li>Głośnych rozmów przez telefon w pociągu</li>
+    <li>Zakładania że "nie mówią po angielsku"</li>
+    <li>Picia z butelki bez nakrętki na ulicy (nieelegancko)</li>
+  </ul>
+</div>
+</div>
+</div>
+
+<div class="pinfo-section">
+<div class="pinfo-head">Płatności i pieniądze</div>
+<div class="pinfo-block">
+<div class="pinfo-row"><div class="pinfo-icon">💳</div><div class="pinfo-text"><strong>Karta zbliżeniowa działa niemal wszędzie</strong> — Riwiera jest jednym z najbardziej przyjaznych kartą miejsc we Francji. Apple Pay i Google Pay działają w kawiarniach, restauracjach, supermarketach.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">💶</div><div class="pinfo-text"><strong>Gotówka przydaje się</strong> na targach (Cours Saleya, Marché Forville, Marché Provençal Antibes), przy ulicznych stoiskach z soccą, w małych kapliczkach, przy automacie biletowym bez karty. Miej 30–50€ przy sobie.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">🏧</div><div class="pinfo-text">Bankomaty (DAB) są przy każdej stacji pociągowej. Używaj bankomatów bankowych — nie Euronet ani innych prywatnych (złe kursy i prowizje).</div></div>
+</div>
+</div>
+
+<div class="pinfo-section">
+<div class="pinfo-head">Godziny otwarcia i niedziele</div>
+<div class="pinfo-block">
+<div class="pinfo-row"><div class="pinfo-icon">🕐</div><div class="pinfo-text"><strong>Przerwa lunchowa 12:00–14:00</strong>: wiele mniejszych sklepów, urzędów i aptek jest zamkniętych. Restauracje serwują lunch 12:00–14:30 i kolację 19:00–22:00. Między tymi godzinami bardzo trudno coś zjeść — planuj posiłki.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">📅</div><div class="pinfo-text"><strong>Niedziela</strong>: supermarkety zamknięte lub otwarte tylko do południa. Za to piekarnie, kawiarnie, restauracje turystyczne — otwarte. Targ Cours Saleya w niedzielę to targ staroci (brocante), nie spożywczy.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">🗓️</div><div class="pinfo-text"><strong>1 maja</strong> (Twój D5): Święto Pracy — zamknięte sklepy i część muzeów. Otwarte: kawiarnie, restauracje, piekarnie, parki. Słusznie zaplanowany jako dzień natury i biegu.</div></div>
+</div>
+</div>
+
+<div class="pinfo-section">
+<div class="pinfo-head">Jedzenie na mieście — kilka zasad</div>
+<div class="pinfo-block">
+<div class="pinfo-row"><div class="pinfo-icon">💧</div><div class="pinfo-text"><strong>"Une carafe d'eau, s'il vous plaît"</strong> — dzbanek wody kranowej jest bezpłatny w każdej restauracji we Francji (obowiązek prawny). Kelner może go nie zaproponować — po prostu poproś.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">🍽️</div><div class="pinfo-text"><strong>Menu du jour</strong> to nie "menu wieczorne" — to zestaw obiadowy dostępny tylko na lunch (12:00–14:30), zwykle starter + danie + deser za 13–18€. Najlepsza opcja cenowa w każdym bistro.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">☕</div><div class="pinfo-text"><strong>"Un café"</strong> we Francji to espresso. Jeśli chcesz większą kawę — proś o "café allongé" (espresso wydłużone) lub "café américain". "Café au lait" to kawa z mlekiem, serwowana głównie rano.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">🧾</div><div class="pinfo-text"><strong>"L'addition, s'il vous plaît"</strong> — rachunek przynieść nie przyjdzie sam. Trzeba poprosić. We Francji kelner nie przynosi rachunku bez prośby — to oznaka szacunku (nie pośpiechu).</div></div>
+</div>
+</div>
+
+<div class="pinfo-section">
+<div class="pinfo-head">Słownik podróżnika — podstawowe zwroty</div>
+<div class="pinfo-block">
+<div class="phrase-row"><div class="phrase-fr">Bonjour</div><div class="phrase-pl">Dzień dobry (używaj zawsze)</div></div>
+<div class="phrase-row"><div class="phrase-fr">Bonsoir</div><div class="phrase-pl">Dobry wieczór (po ~18:00)</div></div>
+<div class="phrase-row"><div class="phrase-fr">Merci / Merci beaucoup</div><div class="phrase-pl">Dziękuję / bardzo dziękuję</div></div>
+<div class="phrase-row"><div class="phrase-fr">S'il vous plaît</div><div class="phrase-pl">Proszę (przy zamawianiu i prośbach)</div></div>
+<div class="phrase-row"><div class="phrase-fr">Excusez-moi</div><div class="phrase-pl">Przepraszam / przepuść mnie</div></div>
+<div class="phrase-row"><div class="phrase-fr">Au revoir</div><div class="phrase-pl">Do widzenia</div></div>
+<div class="phrase-row"><div class="phrase-fr">Parlez-vous anglais?</div><div class="phrase-pl">Czy mówi Pan/Pani po angielsku?</div></div>
+<div class="phrase-row"><div class="phrase-fr">L'addition, s'il vous plaît</div><div class="phrase-pl">Rachunek, proszę</div></div>
+<div class="phrase-row"><div class="phrase-fr">Une carafe d'eau, s'il vous plaît</div><div class="phrase-pl">Dzbanek wody (gratis, obowiązek restauracji)</div></div>
+<div class="phrase-row"><div class="phrase-fr">C'est combien?</div><div class="phrase-pl">Ile to kosztuje?</div></div>
+<div class="phrase-row"><div class="phrase-fr">Où est...?</div><div class="phrase-pl">Gdzie jest...?</div></div>
+<div class="phrase-row"><div class="phrase-fr">Un billet pour [miasto], s'il vous plaît</div><div class="phrase-pl">Jeden bilet do [miasto], proszę</div></div>
+<div class="phrase-row"><div class="phrase-fr">Est-ce que vous acceptez la carte?</div><div class="phrase-pl">Czy akceptujecie kartę?</div></div>
+<div class="phrase-row"><div class="phrase-fr" style="border:none">Je ne comprends pas</div><div class="phrase-pl" style="border:none">Nie rozumiem</div></div>
+</div>
+</div>
+
+<div class="pinfo-section">
+<div class="pinfo-head">Zdrowie i bezpieczeństwo</div>
+<div class="pinfo-block">
+<div class="pinfo-row"><div class="pinfo-icon">🟢</div><div class="pinfo-text"><strong>Apteki</strong> — zielony krzyż (często świecący). Farmaceuci są tu bardzo pomocni i mogą doradzić bez recepty przy drobnych dolegliwościach (obtarcia po biegu, oparzenie słoneczne, ból głowy). W turystycznych miejscach mówią po angielsku.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">☀️</div><div class="pinfo-text"><strong>Słońce</strong> pod koniec kwietnia jest silniejsze niż się wydaje. SPF 30–50 na biegi i wielogodzinne spacery. Po 2h bez kremu przy południu możesz się poparzyć nawet przy zachmurzeniu.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">👜</div><div class="pinfo-text"><strong>Kieszonkowcy</strong> działają głównie w tłumach (targ Cours Saleya, zatłoczone autobusy linii 600, okolice kasyn w Monaco). Portfel w kieszeni z zamkiem, telefon nie wystawiony na wierzch w tłumie.</div></div>
+<div class="pinfo-row"><div class="pinfo-icon">🆘</div><div class="pinfo-text">Numery alarmowe: <strong>15</strong> (pogotowie SAMU), <strong>17</strong> (policja), <strong>18</strong> (straż pożarna), <strong>112</strong> (europejski numer alarmowy — działa wszędzie).</div></div>
+</div>
+</div>
+
+</div><!-- end tips -->
+
+</div><!-- end wrap -->
 <script>
 function show(id,el){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
@@ -432,6 +606,5 @@ function show(id,el){
   el.classList.add('active');
 }
 </script>
-</div>
 </body>
 </html>
